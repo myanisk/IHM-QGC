@@ -1,28 +1,20 @@
-# README - Projet IHM Qt 5.15.2 inspiré de QGroundControl
+# QGroundControl Ground Control Station
 
-## Description du Projet
+[![Releases](https://img.shields.io/github/release/mavlink/QGroundControl.svg)](https://github.com/mavlink/QGroundControl/releases)
 
-Ce projet consiste en une interface utilisateur graphique (IHM) développée en utilisant la bibliothèque Qt version 5.15.2 L'IHM est conçue pour offrir une expérience utilisateur similaire à celle de QGroundControl, une application de contrôle de drones open-source. Vous pouvez utiliser cette IHM comme point de départ pour développer des applications de contrôle de véhicules autonomes, de drones ou d'autres systèmes similaires.
+*QGroundControl* (QGC) is an intuitive and powerful ground control station (GCS) for UAVs.
 
-## Prérequis
+The primary goal of QGC is ease of use for both first time and professional users.
+It provides full flight control and mission planning for any MAVLink enabled drone, and vehicle setup for both PX4 and ArduPilot powered UAVs. Instructions for *using QGroundControl* are provided in the [User Manual](https://docs.qgroundcontrol.com/en/) (you may not need them because the UI is very intuitive!)
 
-- Qt 5.15.2 ou version ultérieure installé sur votre système.
-- [Autres dépendances spécifiques à votre projet, le cas échéant]
-
-## Installation
-
-1. Clonez ce référentiel sur votre système local :
-
-git clone
+All the code is open-source, so you can contribute and evolve it as you want.
+The [Developer Guide](https://dev.qgroundcontrol.com/en/) explains how to [build](https://dev.qgroundcontrol.com/en/getting_started/) and extend QGC.
 
 
-2. Ouvrez le projet à l'aide de Qt Creator ou d'un autre environnement de développement Qt.
-
-3. Configurez votre environnement de développement pour utiliser Qt 5.15.2 ou une version ultérieure.
-
-4. Compilez et exécutez le projet.
-
-## Utilisation
-
-[Expliquez ici comment utiliser votre IHM, y compris les fonctionnalités principales, les commandes, etc.]
-
+Key Links:
+* [Website](http://qgroundcontrol.com) (qgroundcontrol.com)
+* [User Manual](https://docs.qgroundcontrol.com/en/)
+* [Developer Guide](https://dev.qgroundcontrol.com/en/)
+* [Discussion/Support](https://docs.qgroundcontrol.com/en/Support/Support.html)
+* [Contributing](https://dev.qgroundcontrol.com/en/contribute/)
+* [License](https://github.com/mavlink/qgroundcontrol/blob/master/COPYING.md)
