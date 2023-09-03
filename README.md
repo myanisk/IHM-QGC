@@ -2,7 +2,7 @@
 
 ## Description du Projet
 
-Ce projet consiste en une interface utilisateur graphique (IHM) développée en utilisant la bibliothèque Qt version 5.15.2. L'IHM est conçue pour offrir une expérience utilisateur similaire à celle de QGroundControl, une application de contrôle de drones open-source. Vous pouvez utiliser cette IHM comme point de départ pour développer des applications de contrôle de véhicules autonomes, de drones ou d'autres systèmes similaires.
+Ce projet consiste en une interface utilisateur graphique (IHM) développée en utilisant la bibliothèque Qt version 5.15.2 L'IHM est conçue pour offrir une expérience utilisateur similaire à celle de QGroundControl, une application de contrôle de drones open-source. Vous pouvez utiliser cette IHM comme point de départ pour développer des applications de contrôle de véhicules autonomes, de drones ou d'autres systèmes similaires.
 
 ## Prérequis
 
