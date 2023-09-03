@@ -1,70 +1,103 @@
-# QGroundControl - Getting Started
-
-This guide provides step-by-step instructions for obtaining the QGroundControl source code, building it natively, or within a Vagrant environment. It also covers optional and OS-specific functionality.
-
-## Daily Builds
-
-If you only need to test a recent QGroundControl build without debugging, you can use the Daily Build. Daily builds are available for all platforms.
+# Getting Started with QGroundControl
 
 ## Source Code
 
-The source code for QGroundControl is hosted on GitHub at [https://github.com/mavlink/qgroundcontrol](https://github.com/mavlink/qgroundcontrol). QGroundControl is dual-licensed under Apache 2.0 and GPLv3.
+The source code for QGroundControl is hosted on GitHub at [https://github.com/mavlink/qgroundcontrol](https://github.com/mavlink/qgroundcontrol). It is dual-licensed under Apache 2.0 and GPLv3.
 
-To obtain the source files, follow these steps:
+To obtain the source files:
 
 1. Clone the repository (or your fork) including submodules:
-   ```bash
-   git clone --recursive -j8 https://github.com/mavlink/qgroundcontrol.git
-   
-Update submodules (required each time you pull new source code): git submodule update --recursive
+git clone --recursive -j8 https://github.com/mavlink/qgroundcontrol.git
 
-Please note that GitHub source-code zip files cannot be used since they do not contain the appropriate submodule source code. You must use git for cloning.
+2. Update submodules (required each time you pull new source code):
+git submodule update --recursive
 
-Build QGroundControl
-Using Containers
-We support Linux builds using a container found in the source tree of the repository. This container facilitates the development and deployment of QGC apps without requiring you to install any of the necessary requirements on your local environment. For detailed instructions, refer to the Container Guide.
 
-Native Builds
-QGroundControl supports native builds on macOS, Linux, Windows, iOS, and Android. QGroundControl utilizes Qt as its cross-platform support library and QtCreator as its default build environment. Specific requirements for each platform are as follows:
+GitHub source-code zip files cannot be used because they do not contain the appropriate submodule source code. You must use Git!
 
-macOS: v10.11 or higher
-Ubuntu: 64 bit, gcc compiler
-Windows: Vista or higher, Visual Studio 2019 compiler (64 bit)
-iOS: 10.0 and higher
-Android: Android 5.0 and later, standard QGC is built against NDK version 19, and Java JDK 11 is required.
-Qt version: 5.15.2 (only) – Do not use any other version of Qt, as other versions may introduce stability and safety issues.
-For more platform-specific information, refer to the Qt 5 supported platform list.
+## Build QGroundControl
 
-Install Visual Studio 2019 (Windows Only)
-To build on Windows, you need to install the Visual Studio 2019 compiler. You can find it here. During installation, select "Desktop development with C++."
+### Using Containers
 
-Install Qt
-You need to install Qt as follows:
+Linux builds are supported using a container found in the source tree of the repository. This container allows you to develop and deploy QGC apps without installing any requirements on your local environment.
 
-Download and run the Qt Online Installer.
-On Ubuntu, make the downloaded file executable using: chmod +x.
-Install Qt to the default location for use with ./qgroundcontrol-start.sh. If you install Qt to a non-default location, you will need to modify qgroundcontrol-start.sh.
-In the installer, choose version 5.15.2, and install the required components based on your platform.
-Install Additional Packages (Platform Specific)
-Depending on your platform, you may need to install additional packages:
+For detailed instructions, please refer to the [Container Guide](#container-guide).
 
-Ubuntu: sudo apt-get install speech-dispatcher libudev-dev libsdl2-dev patchelf build-essential curl
-Fedora: sudo dnf install speech-dispatcher SDL2-devel SDL2 systemd-devel patchelf
-Arch Linux: pacman -Sy speech-dispatcher patchelf
-Android: Follow the Qt Android Setup and ensure you have JDK 11 installed.
-Install Optional/OS-Specific Functionality
-Optional features that depend on the operating system and user-installed libraries are linked/described in the documentation. You can forcibly enable/disable these features by specifying additional values to qmake.
+### Native Builds
 
-For example, to disable the Airmap feature on Ubuntu, create a file named user_config.pri in the repository root directory containing the text DEFINES += DISABLE_AIRMAP. You can do this in a bash terminal using the following command: echo -e "DEFINES += DISABLE_AIRMAP\r\n" | tee user_config.pri
-Building using Qt Creator
-To build QGroundControl using Qt Creator, follow these steps:
+QGroundControl builds are supported on various platforms:
 
-Launch Qt Creator and open the qgroundcontrol.pro project.
+- **macOS**: v10.11 or higher
+- **Ubuntu**: 64 bit, GCC compiler
+- **Windows**: Vista or higher, Visual Studio 2019 compiler (64 bit)
+- **iOS**: 10.0 and higher
+- **Android**: Android 5.0 and later. Standard QGC is built against NDK version 19. Java JDK 11 is required.
+- **Qt Version**: 5.15.2 (only)
 
-In the Projects section, select the appropriate kit for your needs. Choose the kit that corresponds to your platform.
+**Note:** Do not use any other version of Qt! QGC has been thoroughly tested with the specified version of Qt (5.15.2). Using other Qt versions may introduce bugs affecting stability and safety.
 
-Build the project using the "hammer" or "play" icons in Qt Creator.
+For more information, see the [Qt 5 supported platform list](#qt-5-supported-platform-list).
 
-For iOS builds, use XCode as specified.
+**Native CentOS Builds** are also supported but documented separately due to differences in the tested environment.
 
-Congratulations! You have successfully set up and built QGroundControl.
+### Install Visual Studio 2019 (Windows Only)
+
+The Windows compiler can be found here: [Visual Studio 2019 compiler (64 bit)](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+
+When installing, select "Desktop development with C++" as shown:
+
+
+Visual Studio is ONLY used to obtain the compiler. Building QGroundControl should be done using Qt Creator or qmake as outlined below.
+
+### Install Qt
+
+You need to install Qt as described below instead of using pre-built packages from a Linux distribution because QGroundControl requires access to private Qt headers.
+
+To install Qt:
+
+1. Download and run the Qt Online Installer.
+2. On Ubuntu, set the downloaded file to executable using: `chmod +x`.
+3. Install to the default location for use with `./qgroundcontrol-start.sh`. If you install Qt to a non-default location, you will need to modify `qgroundcontrol-start.sh` to run downloaded builds.
+4. In the installer's "Select Components" dialog, choose version 5.15.2. If the needed version is not displayed, check the archive and refresh it. Then install the following components:
+- Windows: MSVC 2019 64 bit
+- MacOS: macOS
+- Linux: Desktop GCC 64-bit
+- All: Qt Charts
+- Android ARMv7 (optional, used for Android builds)
+
+
+### Install Additional Packages (Platform Specific)
+
+- **Ubuntu**: `sudo apt-get install speech-dispatcher libudev-dev libsdl2-dev patchelf build-essential curl`
+- **Fedora**: `sudo dnf install speech-dispatcher SDL2-devel SDL2 systemd-devel patchelf`
+- **Arch Linux**: `pacman -Sy speech-dispatcher patchelf`
+
+### Install Optional/OS-Specific Functionality
+
+Optional features that depend on the operating system and user-installed libraries are linked/described below. These features can be forcibly enabled/disabled by specifying additional values to qmake.
+
+- Video Streaming/Gstreamer: See [Video Streaming](#video-streaming).
+- Airmap SDK: TBD.
+
+To disable platform-specific optional features that are enabled (but not installed) by default:
+
+**Ubuntu**:
+
+1. Create a file named `user_config.pri` in the repository root directory containing the text `DEFINES += DISABLE_AIRMAP`. This can be done in a bash terminal using the command:
+echo -e "DEFINES += DISABLE_AIRMAP\r\n" | tee user_config.pri
+
+
+### Building using Qt Creator
+
+1. Launch Qt Creator and open the `qgroundcontrol.pro` project.
+2. In the Projects section, select the appropriate kit for your needs:
+- **macOS**: Desktop Qt 5.15.2 clang 64 bit
+- **Ubuntu**: Desktop Qt 5.15.2 GCC 64bit
+- **Windows**: Desktop Qt 5.15.2 MSVC2019 64bit
+- **Android**: Android for armeabi-v7a (GCC 4.9, Qt 5.15.2)
+
+JDK11 is required. You can confirm it is being used by reviewing the project settings: Projects > Manage Kits > Devices > Android (tab) > Android Settings > JDK location.
+
+3. Build using the "hammer" or "play" icons in Qt Creator.
+
+
