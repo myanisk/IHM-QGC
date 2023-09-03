@@ -17,12 +17,6 @@ GitHub source-code zip files cannot be used because they do not contain the appr
 
 ## Build QGroundControl
 
-### Using Containers
-
-Linux builds are supported using a container found in the source tree of the repository. This container allows you to develop and deploy QGC apps without installing any requirements on your local environment.
-
-For detailed instructions, please refer to the [Container Guide](#container-guide).
-
 ### Native Builds
 
 QGroundControl builds are supported on various platforms:
@@ -35,10 +29,6 @@ QGroundControl builds are supported on various platforms:
 - **Qt Version**: 5.15.2 (only)
 
 **Note:** Do not use any other version of Qt! QGC has been thoroughly tested with the specified version of Qt (5.15.2). Using other Qt versions may introduce bugs affecting stability and safety.
-
-For more information, see the [Qt 5 supported platform list](#qt-5-supported-platform-list).
-
-**Native CentOS Builds** are also supported but documented separately due to differences in the tested environment.
 
 ### Install Visual Studio 2019 (Windows Only)
 
