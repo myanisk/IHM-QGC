@@ -1,4 +1,4 @@
-# Getting Started with QGroundControl
+# QGroundControl
 
 ## Source Code
 
