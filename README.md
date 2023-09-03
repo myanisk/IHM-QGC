@@ -26,11 +26,3 @@ git clone
 
 [Expliquez ici comment utiliser votre IHM, y compris les fonctionnalités principales, les commandes, etc.]
 
-## Contribution
-
-Les contributions sont les bienvenues ! Si vous souhaitez contribuer à ce projet, veuillez suivre ces étapes :
-
-1. Fork ce référentiel.
-
-2. Créez une branche pour votre contribution :
-
