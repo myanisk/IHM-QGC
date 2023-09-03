@@ -66,21 +66,6 @@ To install Qt:
 - Android ARMv7 (optional, used for Android builds)
 
 
-### Install Additional Packages (Platform Specific)
-
-- **Ubuntu**: `sudo apt-get install speech-dispatcher libudev-dev libsdl2-dev patchelf build-essential curl`
-- **Fedora**: `sudo dnf install speech-dispatcher SDL2-devel SDL2 systemd-devel patchelf`
-- **Arch Linux**: `pacman -Sy speech-dispatcher patchelf`
-
-### Install Optional/OS-Specific Functionality
-
-Optional features that depend on the operating system and user-installed libraries are linked/described below. These features can be forcibly enabled/disabled by specifying additional values to qmake.
-
-- Video Streaming/Gstreamer: See [Video Streaming](#video-streaming).
-- Airmap SDK: TBD.
-
-To disable platform-specific optional features that are enabled (but not installed) by default:
-
 **Ubuntu**:
 
 1. Create a file named `user_config.pri` in the repository root directory containing the text `DEFINES += DISABLE_AIRMAP`. This can be done in a bash terminal using the command:
